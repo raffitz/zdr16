@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <style type="text/css">
+    @font-face {
+      font-family: 'zdr16regular';
+      src: url('./zdr16.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, font, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center, dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend, table, 
+    caption, tbody, tfoot, thead, tr, th, td 
+                      {margin: 0;padding: 0;border: 0;outline: 0;
+                      font-size: 100%;vertical-align: baseline;
+                      background: transparent;}
+    body              {line-height: 1;}
+    ol, ul            {list-style: none;}
+    blockquote, q     {quotes: none;}
+    blockquote:before, blockquote:after,
+    q:before, q:after {content: '';  content: none;}
+    :focus            {outline: 0;}
+    ins               {text-decoration: none;}
+    del               {text-decoration: line-through;}
+    table             {border-collapse: collapse;border-spacing: 0;}
+
+
+
+
+    body {
+      color: #000;
+      background-color: #dcdcdc;
+    }
+
+
+    #container {
+      width: 1024px;
+      margin: 0px auto;
+    }
+
+
+    #main_content {
+      background-color: #fff;
+      padding: 20px 20px 20px;
+    }
+    #zdr16 {
+      font-family: 'zdr16regular';
+    }
+    #transcript, #zdr16 {
+      width: 100%;
+      height: 4em;
+      font-size: 24pt;
+    }
+    #specimen {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    glyph {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin-top: 0.1em;
+      margin-bottom: -0.5em;
+      font-size: 12pt;
+    }
+    glyph:before {
+      content: '.' attr(map);
+      width: 75pt;
+      font-family: 'zdr16regular';
+      font-size: 72pt;
+      padding: 0.045em 0.045em 0.125em;
+    }
+    glyph:after {
+      content: attr(map);
+      font-family: Helvetica, Arial, sans-serif;
+      margin-bottom: 2em;
+    }
+  </style>
+
+  <title>ZDR 16 Reference</title>
+</head>
+
+<body>
+<div id="container">
+  <div id="main_content">
+      <div id="specimen">
+        
+        <glyph map="A"></glyph>
+        <glyph map="B"></glyph>
+        <glyph map="C"></glyph>
+        <glyph map="D"></glyph>
+        <glyph map="E"></glyph>
+        <glyph map="F"></glyph>
+        <glyph map="G"></glyph>
+        <glyph map="H"></glyph>
+        <glyph map="I"></glyph>
+        <glyph map="J"></glyph>
+        <glyph map="K"></glyph>
+        <glyph map="L"></glyph>
+        <glyph map="M"></glyph>
+        <glyph map="N"></glyph>
+        <glyph map="O"></glyph>
+        <glyph map="P"></glyph>
+        <glyph map="Q"></glyph>
+        <glyph map="R"></glyph>
+        <glyph map="S"></glyph>
+        <glyph map="T"></glyph>
+        <glyph map="U"></glyph>
+        <glyph map="V"></glyph>
+        <glyph map="W"></glyph>
+        <glyph map="X"></glyph>
+        <glyph map="Y"></glyph>
+        <glyph map="Z"></glyph>
+        <glyph map="0"></glyph>
+        <glyph map="1"></glyph>
+        <glyph map="2"></glyph>
+        <glyph map="3"></glyph>
+        <glyph map="4"></glyph>
+        <glyph map="5"></glyph>
+        <glyph map="6"></glyph>
+        <glyph map="7"></glyph>
+        <glyph map="8"></glyph>
+        <glyph map="9"></glyph>
+      </div>  
+      <textarea id="transcript"></textarea>
+      <textarea readonly id="zdr16"></textarea>  
+  </div>
+</div>
+<script>
+  (() => {
+    const [transcript, zdr16] = ['transcript', 'zdr16'].map(id => document.getElementById(id));
+    transcript.value = zdr16.value = localStorage.getItem('lastValue');
+    transcript.addEventListener('keyup', () => {
+      localStorage.setItem('lastValue', zdr16.value = transcript.value);
+    });
+  })();
+</script>
+</body>
+</html>
